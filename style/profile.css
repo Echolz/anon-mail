@@ -1,0 +1,237 @@
+main {
+    position: relative;
+    display: flex;
+}
+
+header p {
+    text-align: left;
+}
+
+hr {
+    margin-bottom: 40px;
+    border: 1px solid rgb(90, 90, 90);
+}
+
+form input, form label {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 ;
+}
+
+form input {
+    padding: 5px;
+}
+
+textarea {
+    width: 100%;
+}
+
+input:disabled {
+    background: rgb(213, 228, 201);
+    color: rgb(43, 43, 43);
+    border: 2px solid rgb(84, 122, 52);
+}
+.gradient-btn {
+    font-weight: bold;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border: 2px solid rgb(43, 43, 43);
+    border-radius: 3px;
+}
+form label {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.field {
+    padding: 0 10px 15px 10px;
+}
+
+.profile-menu {
+    position: fixed;
+    box-sizing: border-box;
+    width: 18%;
+    padding: 10px 10px 10px 10px;
+    margin: 30px 40px;
+    height: 60%;
+    border-radius: 12px;
+    border: 2px solid rgb(43, 43, 43);
+    z-index: 80;
+    background-color:  rgb(81, 146, 243);
+    border-color: orange ;
+}
+
+@media (max-width:800px) {
+    .profile-menu {
+        margin-left: 20px;
+    }
+}
+
+.profile-menu-item a {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.profile-menu-item a {
+    display: block;
+    
+}
+
+.profile-menu-item a:hover {
+    /*border-color: rgb(49, 49, 49);*/
+    border-bottom: 2px solid;
+    border-color: rgb(0, 117, 45);
+    color: rgb(73, 143, 8);
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.profile_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 1.4em;
+}
+
+.inner-header {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.profile-page {
+    position: relative;
+    padding: 10px 5% 10px 5%;
+    border-radius: 5px;
+    background:rgb(81, 146, 243);
+    border: 2px solid rgb(124, 124, 124)
+}
+
+.profile-page-wrapper {
+    position: relative;
+    margin: 30px 0 30px 25%;
+    width: 75%;
+    padding: 18px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid orange;
+}
+
+.profile-section {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 8px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-container-3-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.one-row, .two-col {
+    grid-column: 1 / span 2;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.one-row-3-cols {
+    grid-column: 1 / span 3;
+}
+
+#overview_saved_data {
+    margin-bottom: 30px;
+}
+
+#send-btn {
+    width: 80px;
+    margin-bottom: 20px;
+    background-color: rgb(252, 135, 67);
+}
+
+#btn_edit, #btn_logout {
+    height: 32px;
+    align-self: center;
+}
+
+#btn_logout {
+    margin-bottom: 20px;
+    
+}
+
+@media (max-width:700px) {
+    .profile-page-wrapper {
+        margin: 64px 10% 30px 10%;
+        padding: 20px;
+        border-radius: 40px;
+    }
+
+    .profile-menu {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 80%;
+        height: 56px;
+        margin: 0 10% 10px 10%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    nav .inner-header {
+        display: none;
+    }
+}
+
+@media (max-width:583px) {
+    .profile-page-wrapper {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        padding: 20px;
+        border-radius: 40px;
+        
+    }
+
+    .profile-menu {
+        width: 83%;
+        margin-left: 8.5%;
+        margin-right: 8.5%;
+    }
+
+    .profile_header {
+        flex-direction: column;
+    }
+
+    .one-row-small-screen {
+        grid-column: 1 / span 2;
+    }
+
+    nav .profile-menu-item {
+        text-align: center;
+    }
+    
+    .profile-menu-item a {
+        border-bottom: none;
+    }
+    
+}
+

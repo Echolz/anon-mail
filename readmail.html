@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="bg">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/include.css">
+        <script src="scripts/profile.js"></script>
+        <style>
+            body { background: url(images/Wallpaper.png); }
+          </style>
+    </head>
+    <body>
+        <header id="page-header">
+           
+        </header>
+        <main id="profile">
+            <nav class="profile-menu">
+                <header class="inner-header">
+                    <p>Действия:</p>
+                </header>
+                <div class="profile-menu-item" id="profile_info">
+                    <a href="readmail.html">Получени съобщения</a>
+                </div>
+                <div class="profile-menu-item" id="orders">
+                    <a href="profile.html">Пращане на мейл</a>
+                </div>
+                <button onclick="document.location='SingIn.html'" type="button" class="gradient-btn" id="singout-btn" onclick="singout()">Излез</button>
+            </nav>
+            <div class="profile-page-wrapper">
+                <div class="profile-page">
+                    <hr>
+                    <form class="profile-menu-item" id="profile_ocerview">
+                        <header class="inner-header">
+                            <p>Получени съобщения</p>
+                        </header>
+                        <p>Отправител :</p>
+                    <p>Темата на съобщение:</p>
+                            
+                            <div class="field one-row-small-screen">
+                            <p><textarea name="comment" rows="10" maxlength="2500" size="40"></textarea></p>
+                        </div>
+
+                        
+                        </div>
+                        <button type="button" class="gradient-btn" id="next-btn" onclick="NextMail()">Следващо</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
