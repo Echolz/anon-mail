@@ -6,6 +6,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="css/emails.css">
 	<link rel="stylesheet" href="css/include.css">
+    <script src="js/navigation.js" defer ></script>
 </head>
 
 <body>
@@ -45,36 +46,41 @@
                         <h1>Изпратени съобщения</h1>
                     </header>
                     <hr>
-                    <form class="emails-item" id="emails_overview">
-						<table border="0" cellspacing="2" cellpadding="2"> 
-							<tr> 
-							  <td> <font face="Arial">Тема</font> </td> 
-							  <td> <font face="Arial">До</font> </td> 
-							  <td> <font face="Arial">Дата</font> </td>
-							  <td> <font face="Arial">Идентификационен номер</font> </td> 
-						    </tr>
-						<?php 
-							include './email.php';
-							
-							// The variable should point to the currently logged in user
-							$userName = "ikbal";
-							$result = getSendEmails($userName);
-							
-							foreach ($result as $row) {
-								$id = $row["id"];
-								$to = $row["to_"];
-								$subject = $row["subject"]; 
-								$date = $row["sendTime"];
+					<div class="table-wrapper">
+						<table class="emails-menu-item" id="emails_table">  
+							<thead>
+								<tr>
+									<th>Тема</th>
+									<th>До</th> 
+									<th>Дата</th>
+									<th>Идентификационен номер</th> 
+								</tr>
+							</thead>
+							<tbody>
+								<?php 
+									include './email.php';
+									
+									// The variable should point to the currently logged in user
+									$userName = "ikbal";
+									$result = getSendEmails($userName);
+									
+									foreach ($result as $row) {
+										$id = $row["id"];
+										$to = $row["to_"];
+										$subject = $row["subject"]; 
+										$date = $row["sendTime"];
 
-								echo '<tr>
-										  <td><a href="emailView.php?id='.$id.'" style="color: #black; text-decoration: none;">'.$subject.'</a></td>
-										  <td><a href="emailView.php?id='.$id.'" style="color: #black; text-decoration: none;">'.$to.'</a></td>
-										  <td><a href="emailView.php?id='.$id.'" style="color: #black; text-decoration: none;">'.$date.'</a></td> 
-										  <td><a href="emailView.php?id='.$id.'" style="color: #black; text-decoration: none;">'.$id.'</a></td>
-									  </tr>';
-							}
-						?>
-                    </form>
+										echo '<tr class="emails-row clickable">
+												  <td>'.$subject.'</td>
+												  <td>'.$to.'</td>
+												  <td>'.$date.'</td> 
+												  <td class="id">'.$id.'</td>
+											  </tr>';
+									}
+								?>
+							</tbody>
+						</table>
+					</div>
                 </div>
             </div>
         </main>

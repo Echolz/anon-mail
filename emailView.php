@@ -61,8 +61,8 @@
 						<hr>
 						<div class="grid-container emails-section" id="overview_main">
 							<div class="field one-row">
-								<label for="theme">Тема:</label>
-								<input type="text" name="theme" id="theme" value="<?php echo $result['subject'] ?>" disabled>
+								<label for="subject">Тема:</label>
+								<input type="text" name="subject" id="subject" value="<?php echo $result['subject'] ?>" disabled>
 							</div>
 							<div class="field one-row">
 								<label for="from">От:</label>
@@ -74,7 +74,7 @@
 							</div>
 							<div class="field one-row">
 								<label for="date">Дата:</label>
-								<input type="text" name="date" id="date" value="<?php echo "21-21-2021" ?>" disabled>
+								<input type="text" name="date" id="date" value="<?php echo $result['sendTime'] ?>" disabled>
 							</div>
 						</div>
 						<div class="grid-container emails-section" id="overview_main">
