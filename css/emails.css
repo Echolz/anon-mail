@@ -1,0 +1,266 @@
+main {
+    position: relative;
+    display: flex;
+}
+
+header p {
+    text-align: left;
+}
+
+hr {
+    margin-bottom: 40px;
+    border: 1px solid rgb(90, 90, 90);
+}
+
+form input, form label {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 ;
+}
+
+form input {
+    padding: 5px;
+}
+
+textarea {
+    width: 100%;
+	height: 500px;
+}
+
+input:disabled {
+    background: rgb(213, 228, 201);
+    color: rgb(43, 43, 43);
+    border: 2px solid rgb(84, 122, 52);
+}
+
+form label {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.field {
+    padding: 0 10px 15px 10px;
+}
+
+.emails-menu {
+    position: fixed;
+    box-sizing: border-box;
+    width: 18%;
+    padding: 10px 10px 10px 10px;
+    margin: 30px 40px;
+    height: 80%;
+    border-radius: 12px;
+    background: rgb(221, 199, 45);
+    border: 2px solid rgb(43, 43, 43);
+    z-index: 80;
+}
+
+@media (max-width:800px) {
+    .emails-menu {
+        margin-left: 20px;
+    }
+}
+
+.emails-menu-item a {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(166, 137, 6);
+}
+
+.emails-menu-item a {
+    display: block;
+}
+
+.emails-menu-item a:hover {
+    /*border-color: rgb(49, 49, 49);*/
+    border-bottom: 2px solid;
+    border-color: rgb(0, 117, 45);
+    color: rgb(73, 143, 8);
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.emails_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 1.4em;
+}
+
+.inner-header {
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.emails-page {
+    position: relative;
+    padding: 10px 5% 10px 5%;
+    border-radius: 18px;
+    background: rgb(229, 230, 235);
+    border: 2px solid rgb(84, 122, 52)
+}
+
+.emails-page-wrapper {
+    position: relative;
+    margin: 30px 0 30px 25%;
+    width: 75%;
+    padding: 18px;
+    background:rgb(0, 42, 82);
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    border: 2px solid rgb(43, 43, 43);
+}
+
+.emails-section {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 8px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-container-3-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.one-row, .two-col {
+    grid-column: 1 / span 2;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.one-row-3-cols {
+    grid-column: 1 / span 3;
+}
+
+#overview_saved_data {
+    margin-bottom: 30px;
+}
+
+#btn_edit, #btn_logout {
+    height: 32px;
+    align-self: center;
+}
+
+#btn_logout {
+    margin-bottom: 20px;
+}
+
+@media (max-width:700px) {
+    .emails-page-wrapper {
+        margin: 64px 10% 30px 10%;
+        padding: 20px;
+        border-radius: 40px;
+    }
+
+    .emails-menu {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 80%;
+        height: 56px;
+        margin: 0 10% 10px 10%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    nav .inner-header {
+        display: none;
+    }
+}
+
+@media (max-width:583px) {
+    .emails-page-wrapper {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        padding: 20px;
+        border-radius: 40px;
+    }
+
+    .emails-menu {
+        width: 83%;
+        margin-left: 8.5%;
+        margin-right: 8.5%;
+    }
+
+    .emails_header {
+        flex-direction: column;
+    }
+
+    .one-row-small-screen {
+        grid-column: 1 / span 2;
+    }
+
+    nav .emails-menu-item {
+        text-align: center;
+    }
+    
+    .emails-menu-item a {
+        border-bottom: none;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 10px;
+    min-width: 450px;
+}
+
+table, th, td {
+    border: 2px solid rgb(56, 56, 56);
+}
+
+td {
+    font-size: 0.8em;
+    padding: 5px;
+    background: rgb(240, 243, 240);
+}
+
+th {
+    background: rgb(182, 156, 41);
+}
+
+.table-wrapper {
+    position: relative;
+    margin: 20px 10px;
+    overflow-x: scroll;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: rgb(65, 65, 65);
+    border-radius: 40px;
+}
+
+tr.clickable:hover td{
+    cursor: pointer;
+    background-color: rgb(231, 214, 59);
+}
+
+input.radioButton {width: auto;}
+
+.radioButton, .radioB {
+    display: inline;
+}
