@@ -6,6 +6,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="css/emails.css">
 	<link rel="stylesheet" href="css/include.css">
+    <script src="js/receivedEmailsView.js" defer ></script>
 </head>
 
 <body>
