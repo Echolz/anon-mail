@@ -6,7 +6,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="css/emails.css">
 	<link rel="stylesheet" href="css/include.css">
-    <script src="js/navigation.js" defer ></script>
+    <script src="js/sendEmailsView.js" defer ></script>
 </head>
 
 <body>
@@ -58,11 +58,11 @@
 							</thead>
 							<tbody>
 								<?php 
-									include './email.php';
+									include './database.php';
 									
 									// The variable should point to the currently logged in user
 									$userName = "ikbal";
-									$result = getSendEmails($userName);
+									$result = getSendEmailsFrom($userName);
 									
 									foreach ($result as $row) {
 										$id = $row["id"];

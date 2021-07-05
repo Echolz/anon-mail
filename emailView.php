@@ -1,12 +1,12 @@
 <?php 
-	include './email.php';
+	include './database.php';
 
 	if(isset($_GET["id"]))
 	{
 		$id = $_GET["id"];
 	}
 	
-	$result = getEmailById($id);
+	$result = getEmail($id);
 
 	
 ?>

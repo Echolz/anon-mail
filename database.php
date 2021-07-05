@@ -110,15 +110,18 @@ function getEmail($id) {
 	return $row;	
 }
 
-function getEmailsFrom($from) {
+function getSendEmailsFrom($user) {
 	global $table_email;
 
+	$anonUsername = getAnonName($user);
+	
     $connection = getDatabaseConnection();
     $query = "SELECT * FROM $table_email 
-							WHERE from_ = :from";
+							WHERE from_ IN (:user, :anonUsername)";
 
     $preparedSql = $connection->prepare($query) or die("Error getting emails!");
-    $preparedSql->bindParam(':from', $from);
+    $preparedSql->bindParam(':user', $user);
+    $preparedSql->bindParam(':anonUsername', $anonUsername);
 
     $preparedSql->execute() or die("Error getting emails!");
 	$result = $preparedSql->fetchAll(PDO::FETCH_ASSOC);
@@ -126,9 +129,62 @@ function getEmailsFrom($from) {
 	return $result;
 }
 
-// TO be implemented
+function getAnonEmailsTo($to) {
+	global $table_email;
+	global $table_email_user;
+
+	$toAnon = getAnonName($to);
+
+    $connection = getDatabaseConnection();
+    $query = "SELECT * FROM $table_email 
+							WHERE to_ IN (:to, :toAnon)
+								AND from_ IN (SELECT anonym_username from $table_email_user)";
+								
+    $preparedSql = $connection->prepare($query) or die("Error getting emails!");
+    $preparedSql->bindParam(':to', $to);
+    $preparedSql->bindParam(':toAnon', $toAnon);
+
+    $preparedSql->execute() or die("Error getting emails!");
+	$result = $preparedSql->fetchAll(PDO::FETCH_ASSOC);
+
+	return $result;
+}
+
+function getAnonName($username) {
+	global $table_email_user;
+
+    $connection = getDatabaseConnection();
+    $query = "SELECT * FROM $table_email_user 
+							WHERE username = :username";
+
+    $preparedSql = $connection->prepare($query) or die("Error getting user anon name!");
+    $preparedSql->bindParam(':username', $username);
+
+    $preparedSql->execute() or die("Error getting user anon name!");
+	$result = $preparedSql->fetch(PDO::FETCH_ASSOC);
+
+	return $result['anonym_username'];
+}
+
 function getEmailsTo($to) {
+	global $table_email;
+	global $table_email_user;
+
+	$toAnon = getAnonName($to);
+
+    $connection = getDatabaseConnection();
+    $query = "SELECT * FROM $table_email 
+							WHERE to_ IN (:to, :toAnon)
+								AND from_ IN (SELECT username from $table_email_user)";
+
+    $preparedSql = $connection->prepare($query) or die("Error getting emails!");
+    $preparedSql->bindParam(':to', $to);
+    $preparedSql->bindParam(':toAnon', $toAnon);
+
+    $preparedSql->execute() or die("Error getting emails!");
+	$result = $preparedSql->fetchAll(PDO::FETCH_ASSOC);
 	
+	return $result;	
 }
 
 function getDatabaseConnection() {

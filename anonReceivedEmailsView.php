@@ -6,6 +6,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="css/emails.css">
 	<link rel="stylesheet" href="css/include.css">
+    <script src="js/anonReceivedEmailsView.js" defer ></script>
 </head>
 
 <body>
@@ -39,38 +40,44 @@
                     <a href="anonReceivedEmailsView.php">Анонимно получени</a>
                 </div>
             </nav>
-            <div class="emails-page-wrapper">
+			<div class="emails-page-wrapper">
                 <div class="emails-page">
                     <header class="emails_header">
-                        <h1>Анонимно получени съобщения</h1>
+                        <h1>Анонинмно получени съобщения</h1>
                     </header>
                     <hr>
-                    <form class="emails-item" id="emails_overview">
-						<?php 
-							include './email.php';
+					<div class="table-wrapper">
+						<table class="emails-menu-item" id="emails_table">  
+							<thead>
+								<tr>
+									<th>Тема</th>
+									<th>Дата</th>
+									<th>Идентификационен номер</th> 
+								</tr>
+							</thead>
+							<tbody>
+								<?php 
+									include './database.php';
+									
+									// The variable should point to the currently logged in user
+									$userName = "ikbal";
+									$result = getAnonEmailsTo($userName);
+									
+									foreach ($result as $row) {
+										$id = $row["id"];
+										$subject = $row["subject"]; 
+										$date = $row["sendTime"];
 
-							echo '<table border="0" cellspacing="2" cellpadding="2"> 
-							  <tr> 
-								  <td> <font face="Arial">Тема</font> </td> 
-								  <td> <font face="Arial">Дата</font> </td>
-								  <td> <font face="Arial">Идентификационен номер</font> </td> 
-							  </tr>';
-							  
-							$result = getSendEmails();
-							
-							foreach ($result as $row) {
-								$id = $row["id"];
-								$from = $row["from_"];
-								$subject = $row["subject"]; 
-
-								echo '<tr> 
-										  <td>'.$subject.'</td>
-										  <td>12-12-2021</td> 
-										  <td>'.$id.'</td> 
-									  </tr>';
-							}
-						?>
-                    </form>
+										echo '<tr class="emails-row clickable">
+												  <td>'.$subject.'</td>
+												  <td>'.$date.'</td>
+												  <td class="id">'.$id.'</td>
+											  </tr>';
+									}
+								?>
+							</tbody>
+						</table>
+					</div>
                 </div>
             </div>
         </main>
