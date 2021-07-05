@@ -11,10 +11,15 @@ if ($_POST) {
 
     $subject = $_POST[SUBJECT];
     $to = $_POST[TO];
-    $deliveryType = $_POST[DELIVERY_TYPE];
+	$currentUser = "ikbal";
     $content = $_POST[CONTENT];
+    $deliveryType = $_POST[DELIVERY_TYPE];
+	
+	if ($deliveryType == anonymous) {
+		$currentUser = getAnonName($currentUser);
+	}
 
-    insertEmail("ikbal", $to, $subject, $content);
+    insertEmail($currentUser, $to, $subject, $content);
 }
 
 header('Location: newEmail.html');
