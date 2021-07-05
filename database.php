@@ -58,15 +58,22 @@ function getUser($username) {
 }
 
 function userExists($username) {
-    global $table_name;
+    global $table_email_user;
+	
+	$anonUsername = getAnonName($username);
+	
+	if ($anonUsername == NULL) {
+		return false;
+	}
 	
 	$errorMessage = "Error checking if user with username $username exists!";
     $connection = getDatabaseConnection();
     $query = "Select * FROM $table_email_user
-							WHERE username = :username";
+							WHERE username = IN (:username, :anonUsername)";
 
     $preparedSql = $connection->prepare($query) or die($errorMessage);
     $preparedSql->bindParam(':username', $username);
+    $preparedSql->bindParam(':anonUsername', $anonUsername);
 
     $preparedSql->execute() or die($errorMessage);
 	$row = $preparedSql->fetch(PDO::FETCH_ASSOC);
@@ -152,7 +159,6 @@ function getAnonEmailsTo($to) {
 
 function getAnonName($username) {
 	global $table_email_user;
-
     $connection = getDatabaseConnection();
     $query = "SELECT * FROM $table_email_user 
 							WHERE username = :username";
@@ -163,6 +169,10 @@ function getAnonName($username) {
     $preparedSql->execute() or die("Error getting user anon name!");
 	$result = $preparedSql->fetch(PDO::FETCH_ASSOC);
 
+	if (!$result) {
+		return NULL;;
+	}
+	
 	return $result['anonym_username'];
 }
 
