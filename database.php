@@ -27,6 +27,28 @@ function insertUser($username, $anonym_username, $password, $fn, $name, $surname
     echo("Successfully inserted new user!");
 }
 
+function getSessionID($username, $password) {
+    global $table_email_user;
+
+    $errorMessage = "Error inserting new user with username $username!";
+    $connection = getDatabaseConnection();
+    $query = "SELECT COUNT(*) FROM $table_email_user WHERE $table_email_user.username = :username AND $table_email_user.password = :password";
+    $preparedSql = $connection->prepare($query) or die($errorMessage);
+    $preparedSql->bindParam(':username', $username);
+    $preparedSql->bindParam(':password', $password);
+
+    $preparedSql->execute() or die($errorMessage);
+
+    $row = $preparedSql->fetch(PDO::FETCH_ASSOC);
+    if (!$row) {
+        return false;
+    }
+
+    echo("Login was successful!");
+    return true;
+}
+
+
 function updateUser($id, $username, $anonym_username, $password, $fn, $name, $surname) {
     global $table_email_user;
 	
