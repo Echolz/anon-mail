@@ -7,7 +7,7 @@ CREATE TABLE email_user (
     username VARCHAR(256) NOT NULL,
     anonym_username VARCHAR(256) NOT NULL,
     password VARCHAR(256) NOT NULL,
-    fn INT NOT NULL
+    fn INT NOT NULL,
     name VARCHAR(256) NOT NULL,
     surname VARCHAR(256) NOT NULL,
 	CONSTRAINT username_unique UNIQUE (username)
@@ -15,8 +15,8 @@ CREATE TABLE email_user (
 
 CREATE TABLE email (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    from VARCHAR(256) NOT NULL,
-    to VARCHAR(256) NOT NULL,
+    `from` VARCHAR(256) NOT NULL,
+    `to` VARCHAR(256) NOT NULL,
     subject VARCHAR(256) NOT NULL,
     content VARCHAR(8192) NOT NULL
 );
