@@ -63,13 +63,15 @@ function userExists($username) {
 	$anonUsername = getAnonName($username);
 	
 	if ($anonUsername == NULL) {
-		return false;
+		$anonUsername = "anonUsernNamePlaceHolder";
 	}
+	
 	
 	$errorMessage = "Error checking if user with username $username exists!";
     $connection = getDatabaseConnection();
     $query = "Select * FROM $table_email_user
-							WHERE username = IN (:username, :anonUsername)";
+							WHERE username IN (:username, :anonUsername)
+							OR anonym_username IN (:username, :anonUsername)";
 
     $preparedSql = $connection->prepare($query) or die($errorMessage);
     $preparedSql->bindParam(':username', $username);
