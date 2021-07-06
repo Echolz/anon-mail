@@ -18,7 +18,7 @@
 <main>
 
     <div class="form-container">
-        <form action="" method="post" class="form" id="login_form">
+        <form method="POST" action="login.php" enctype="multipart/form-data">
             <header id="form_title">Вход</header>
             <hr>
             <div class="form-item">
@@ -32,7 +32,7 @@
                 <small class="error_field" id="error_password">Полето е задължително</small>
             </div>
             <div class="form-item btn-container">
-                <button id="singin-btn" class="btn_submit gradient-btn" type="button" onclick="singIn()">Вход</button>
+                <input type="submit" name="send" value="Вход">
             </div>
         </form>
     </div>
