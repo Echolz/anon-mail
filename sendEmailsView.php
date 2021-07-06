@@ -17,7 +17,7 @@
 			</a>
 		</div>
 		<div class="header-item" id="emails_header_container">
-			<a id="sign_in" class="header-a" href="login.html">Вход</a>
+			<a id="sign_in" class="header-a" href="SignIn.html">Вход</a>
 			<a id="register"  class="header-a" href="register.html">Регистрация</a>
 			<img class="icon" id="profile_img" src="img/account.png" alt="Икона на потребителски профил" onclick="profileRedirect('takeAndDeliver')">
 		</div>
