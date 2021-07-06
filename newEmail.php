@@ -18,7 +18,7 @@ if ($_POST) {
 		$content = $_POST[CONTENT];
 		$deliveryType = $_POST[DELIVERY_TYPE];
 		
-		if ($deliveryType == anonymous) {
+		if ($deliveryType == "anonymous") {
 			$currentUser = getAnonName($currentUser);
 		}
 
