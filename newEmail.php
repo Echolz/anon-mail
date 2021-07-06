@@ -29,5 +29,3 @@ if ($_POST) {
 }
 
 header('Location: newEmail.html');
-
-?>

@@ -12,9 +12,7 @@ if ($_POST) {
     $password = $_POST[PASSWORD];
 
     $sessionID = getSessionID($username, $password);
-    echo getSessionValue();
     setSessionValue("something");
-    echo getSessionValue();
 }
 
 header('Location: newEmail.html');

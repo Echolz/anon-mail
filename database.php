@@ -44,7 +44,6 @@ function getSessionID($username, $password) {
         return false;
     }
 
-    echo("Login was successful!");
     return true;
 }
 
