@@ -22,12 +22,12 @@
         </header>
         <main>
             <div class="form-container">
-                <form action="" method="post" class="form" id="login_form">
+                <form method="POST" action="login.php" enctype="multipart/form-data">
                     <header id="form_title">Вход</header>
                     <hr>
                     <div class="form-item">
-                        <label for="email" class="lbl">Имейл:</label>
-                        <input type="email" id="email" name="email" placeholder="Въведи имейл тук">
+                        <label for="username" class="lbl">Потребителско име:</label>
+                        <input id="username" name="username" placeholder="Потребителско име">
                         <small class="error_field" id="error_email">Полето е задължително</small>
                     </div>
                     <div class="form-item">
@@ -36,7 +36,7 @@
                         <small class="error_field" id="error_password">Полето е задължително</small>
                     </div>
                     <div class="form-item btn-container">
-                        <button id="login-btn" class="btn_submit gradient-btn" type="button">Вход</button>
+                        <input type="submit" name="send" value="Вход">
                         <a href="register.html">Нямаш профил? Натисни тук, за да се регистрираш.</a>
                     </div>
                 </form>

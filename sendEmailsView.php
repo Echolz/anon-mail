@@ -58,10 +58,11 @@
 							</thead>
 							<tbody>
 								<?php 
+								session_start();
 									include './database.php';
+									include './session.php';
 									
-									// The variable should point to the currently logged in user
-									$userName = "ikbal";
+									$userName = getSessionValue();
 									$result = getSendEmailsFrom($userName);
 									
 									foreach ($result as $row) {
@@ -76,7 +77,9 @@
 												  <td>'.$date.'</td> 
 												  <td class="id">'.$id.'</td>
 											  </tr>';
+											  
 									}
+									
 								?>
 							</tbody>
 						</table>

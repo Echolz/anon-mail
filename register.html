@@ -22,12 +22,22 @@
         </header>
         <main>
             <div class="form-container">
-                <form action="#" method="post" class="form" id="login_form">
+                <form method="POST" action="register.php" enctype="multipart/form-data">
                     <header id="form_title">Регистрация</header>
                     <hr>
                      <div class="form-item">
-                        <label for="email" class="lbl">Имейл :</label>
-                        <input type="email" id="email" name="email" placeholder="Въведи имейл или никнейм">
+                        <label for="username" class="lbl">Потребителско име:</label>
+                        <input type="username" id="username" name="username" placeholder="Въведи потребителско име">
+                        <small class="error_field" id="error_email">Полето е задължително</small>
+                    </div>
+					<div class="form-item">
+                        <label for="name" class="lbl">Име:</label>
+                        <input type="name" id="name" name="name" placeholder="Въведи име">
+                        <small class="error_field" id="error_email">Полето е задължително</small>
+                    </div>
+					<div class="form-item">
+                        <label for="surname" class="lbl">Фамилия:</label>
+                        <input type="surname" id="surname" name="surname" placeholder="Въведи фамилия">
                         <small class="error_field" id="error_email">Полето е задължително</small>
                     </div>
                     <div class="form-item">
@@ -36,17 +46,12 @@
                         <small class="error_field" id="error_password">Полето е задължително</small>
                     </div>
                     <div class="form-item">
-                        <label for="phone" class="lbl">Телефонен номер:</label>
-                        <input type="phone" id="phone" name="phone" placeholder="Въведи телефона номер">
-                        <small class="error_field" id="error_phone">Полето е задължително</small>
-                    </div>
-                    <div class="form-item">
                         <label for="fn" class="lbl">Факултетен номер:</label>
                         <input type="fn" id="fn" name="fn" placeholder="Въведи факултетен номер">
                         <small class="error_field" id="error_fn">Полето е задължително</small>
                     </div>
                     <div class="form-item btn-container">
-                        <button id="register-btn" class="btn_submit gradient-btn" type="button">Регистрация</button>
+                        <input type="submit" name="send" value="Регистрация">
                         <a href="login.html">Имаш профил? Натисни тук, за да влезеш в него.</a>
                     </div>
                 </form>

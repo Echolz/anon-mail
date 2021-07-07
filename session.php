@@ -6,4 +6,4 @@ function setSessionValue($value){
 function getSessionValue() {
     return $_SESSION["session"];
 }
-
+?>

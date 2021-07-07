@@ -1,6 +1,7 @@
 <?php
-
-require 'database.php';
+session_start();
+include './database.php';
+include './session.php';
 
 define("SUBJECT", "subject");
 define("TO", "to");
@@ -14,7 +15,7 @@ if ($_POST) {
 	
 	if (userExists($to)) {
 		
-		$currentUser = "ikbal";
+		$currentUser = getSessionValue();
 		$content = $_POST[CONTENT];
 		$deliveryType = $_POST[DELIVERY_TYPE];
 		
@@ -29,3 +30,5 @@ if ($_POST) {
 }
 
 header('Location: newEmail.html');
+
+?>

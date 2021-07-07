@@ -58,10 +58,11 @@
 							</thead>
 							<tbody>
 								<?php 
+									session_start();
 									include './database.php';
+									include './session.php';
 									
-									// The variable should point to the currently logged in user
-									$userName = "ikbal";
+									$userName = getSessionValue();
 									$result = getEmailsTo($userName);
 									
 									foreach ($result as $row) {
