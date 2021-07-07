@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="bg">
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,12 +14,40 @@
                 <a href="index.html">
                     <img class="icon" id="logo_img" src="img/icons/logo.png" alt="Лого на поща">
                 </a>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/singin.css">
+    <script src="scripts/profile.js"></script>
+    <style>
+        body {
+            background: url(images/Wallpaper.png);
+        }
+    </style>
+</head>
+<body>
+<header>
+</header>
+<main>
+
+    <div class="form-container">
+        <form method="POST" action="outputSession.php" enctype="multipart/form-data">
+            <header id="form_title">Вход</header>
+            <hr>
+            <div class="form-item">
+                <label for="username" class="lbl">Никнейм:</label>
+                <input type="text" id="username" name="username" placeholder="Въведи имейл или никнейм">
+                <small class="error_field" id="error_email">Полето е задължително</small>
+>>>>>>> 068cc71a06a8df164d5b255177f1fe4b016cf11d
             </div>
             <div class="header-item" id="profile_header_container">
                 <a id="sign_in" class="header-a" href="login.html">Вход</a>
                 <a id="register"  class="header-a" href="register.html">Регистрация</a>
                 <img class="icon" id="profile_img" src="img/icons/account.png" alt="Икона на потребителски профил" onclick="profileRedirect('login')">
             </div>
+<<<<<<< HEAD
         </header>
         <main>
             <div class="form-container">
@@ -40,6 +69,10 @@
                         <a href="register.html">Нямаш профил? Натисни тук, за да се регистрираш.</a>
                     </div>
                 </form>
+=======
+            <div class="form-item btn-container">
+                <input type="submit" name="send" value="Вход">
+>>>>>>> 068cc71a06a8df164d5b255177f1fe4b016cf11d
             </div>
         </main>
     </body>
