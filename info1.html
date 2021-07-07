@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bg">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/login.css">
+        <link rel="stylesheet" href="style/info.css">
+        <script src="scripts/profile.js" defer></script>
+    </head>
+    <body>
+        <header id="page-header">
+            <div class="header-item" id="icon_header_container">
+                <a href="index.html">
+                    <img class="icon" id="logo_img" src="img/icons/logo.png" alt="Лого на поща">
+                </a>
+            </div>
+            <div class="header-item" id="profile_header_container">
+                <!-- <a id="sign_in" class="header-a" href="login.html">Вход</a>
+                <a id="register"  class="header-a" href="register.html">Регистрация</a> -->
+                <img class="icon" id="profile_img" src="img/icons/account.png" alt="Икона на потребителски профил" onclick="profileRedirect('register')">
+            </div>
+        </header>
+        <main>
+            <div class="form-container">
+            <form action="#" method="post" class="form" id="login_form">
+                <header id="form_title">Профил</header>
+                
+                    <form action="" method="post" class="form" id="login_form"></form>
+    
+                        <div class="form-item1">
+                            <label for="email" class="lbl">Имейл :</label>
+                            <a id="email"></a>
+                            
+                            <div class="form-item1">
+                                <label for="name" class="lbl">Име :</label>
+                                <a id="name"></a>
+                        </div>
+                        <div class="form-item1">
+                            <label for="surname" class="lbl">Фамилия :</label>
+                            <a id="surname"></a>
+                    </div>
+                    <div class="form-item1">
+                        <label for="nickname" class="lbl">Никнейм :</label>
+                        <a id="nickname"></a>
+                </div>
+                        <div class="form-item1">
+                            <label for="phone" class="lbl">Телефонен номер:</label>
+                            <a id="phone"></a>
+                        <div class="form-item1">
+                            <label for="fn" class="lbl">Факултетен номер:</label>
+                            <a id="fn"></a> 
+                        </div>
+                        <hr> <hr>
+                           <button id="menu-btn" class="btn_submit gradient-btn" type="button" onclick="move()">Към моите съобщения</button>
+                    </form>
+                </div>
+            </form>
+        </div>
+        </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function move() {
+                window.location.href = "./readmail.html";
+            }
+            
+            const account = JSON.parse(sessionStorage.getItem('account'));
+
+            const email = $("#email")[0];
+            const phone = $("#phone")[0];
+            const fn = $("#fn")[0];
+
+            email.innerHTML = account.username;
+            //replace '' with phone.innerHTML = account.phone
+            phone.innerHTML = '';
+            //replace '' with phone.fn = account.fn
+            fn.innerHTML = '';
+        </script>
+    </body>
+</html>
