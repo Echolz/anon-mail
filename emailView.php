@@ -19,6 +19,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="css/emails.css">
 	<link rel="stylesheet" href="css/include.css">
+    <script src="js/emailView.js" defer ></script>
 </head>
 
 <body>
@@ -83,11 +84,13 @@
 								<textarea rows="20" name="content" id="content" disabled><?php echo $result['content'] ?></textarea>
 							</div>
 						</div>
+						<div>
+							<input onclick="reply()" type="button" value="Отговори">
+						</div>
 					</form>
                 </div>
             </div>
         </main>
-
 </body>
 
 </html>

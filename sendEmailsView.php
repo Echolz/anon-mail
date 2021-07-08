@@ -28,7 +28,7 @@
                     <p>Навигация</p>
                 </header>
                 <div class="emails-menu-item" id="newEmail">
-                    <a href="newEmail.html">Ново съобщение</a>
+                    <a href="newEmail.php">Ново съобщение</a>
                 </div>
                 <div class="emails-menu-item" id="send">
                     <a href="sendEmailsView.php">Изпратени</a>
@@ -87,7 +87,6 @@
                 </div>
             </div>
         </main>
-
 </body>
 
 </html>
